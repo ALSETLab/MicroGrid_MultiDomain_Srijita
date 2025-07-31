@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController;
+within OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController;
 model REECA1 "Electrical control model for large scale wind (TEST)"
   extends
     OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController.BaseClasses.BaseREECA(

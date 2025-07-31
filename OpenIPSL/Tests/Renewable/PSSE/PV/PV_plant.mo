@@ -1,13 +1,14 @@
 within OpenIPSL.Tests.Renewable.PSSE.PV;
 model PV_plant
   "PV source in a SMIB system to test functionality of REPCA plant controller model"
-  extends BaseClasses.SMIBRenewable(SysData(fn=60), freq(k=SysData.fn));
+  extends BaseClasses.SMIBRenewable(SysData(fn=60), freq(k=SysData.fn),
+    pwFault(t2=3));
   Electrical.Renewables.PSSE.PV pV(
     P_0=1500000,
     Q_0=-5665800,
     v_0=1,
     angle_0(displayUnit="deg") = 0.02574992,
-    QFunctionality=4,
+    QFunctionality=1,
     PFunctionality=0,
     redeclare
       OpenIPSL.Electrical.Renewables.PSSE.RenewableGeneratorConverter.REGC_A

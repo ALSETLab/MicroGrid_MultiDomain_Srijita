@@ -1,4 +1,4 @@
-﻿within OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController;
+within OpenIPSL.Electrical.Renewables.PSSE.RenewableElectricalController;
 model REECCU1
   "Electrical control model for utility scale battery energy storage"
   extends
@@ -445,10 +445,10 @@ equation
           {88.8,-50.4}}, color={0,0,127}));
   connect(PQFLAG.y, ccl_reecc.pqflag)
     annotation (Line(points={{147,-60},{127.2,-60}}, color={255,0,255}));
-  connect(IQCMD.y, ccl_reecc.Iqcmd) annotation (Line(points={{147,-38},{132,-38},
-          {132,-50.4},{127.2,-50.4}}, color={0,0,127}));
-  connect(IPCMD.y, ccl_reecc.Ipcmd) annotation (Line(points={{147,-82},{132,-82},
-          {132,-69.6},{127.2,-69.6}}, color={0,0,127}));
+  connect(IQCMD.y, ccl_reecc.Iqcmd) annotation (Line(points={{147,-38},{132,-38},{132,-50.4},{127.2,-50.4}},
+                                      color={0,0,127}));
+  connect(IPCMD.y, ccl_reecc.Ipcmd) annotation (Line(points={{147,-82},{132,-82},{132,-69.6},{127.2,-69.6}},
+                                      color={0,0,127}));
   connect(limiter.y, add9.u1)
     annotation (Line(points={{-107,234},{232,234},{232,86}}, color={0,0,127}));
   connect(variableLimiter.y, Iqcmd)

@@ -5,3 +5,7 @@ RenewableGeneratorConverter
 RenewableElectricalController
 RenewablePlantController
 RenewableDriveTrain
+Wind_New
+BESS_New
+PV_New
+PV_NewREGCB

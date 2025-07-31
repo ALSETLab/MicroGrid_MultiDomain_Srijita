@@ -36,15 +36,14 @@ model Generator "Complete generation unit ready for simulation"
 equation
   connect(avr.vf, machine.vf) annotation (Line(points={{1.66667,10},{1.66667,10},
           {36,10}}, color={0,0,127}));
-  connect(avr.v, machine.v) annotation (Line(points={{-38.3333,20},{-72,20},{
-          -72,50},{94,50},{94,6},{82,6}},
+  connect(avr.v, machine.v) annotation (Line(points={{-38.3333,20},{-72,20},{-72,50},{94,50},{94,6},{82,6}},
                                       color={0,0,127}));
   connect(machine.pm0, machine.pm) annotation (Line(points={{44,-22},{44,-22},{
           44,-30},{30,-30},{30,-10},{36,-10}}, color={0,0,127}));
   connect(pss_off.y, avr.vs)
     annotation (Line(points={{-59,0},{-38.3333,0}}, color={0,0,127}));
-  connect(avr.vf0, machine.vf0) annotation (Line(points={{-20,28.3333},{-20,40},
-          {44,40},{44,22}}, color={0,0,127}));
+  connect(avr.vf0, machine.vf0) annotation (Line(points={{-20,28.3333},{-20,40},{44,40},{44,22}},
+                            color={0,0,127}));
   connect(machine.p, pwPin)
     annotation (Line(points={{80,0},{80,0},{110,0}}, color={0,0,255}));
 

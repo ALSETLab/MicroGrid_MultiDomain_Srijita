@@ -74,22 +74,22 @@ equation
       points={{90,-20},{90,50},{-94,50},{-94,0},{-100,0}},
       color={0,0,255},
       smooth=Smooth.None));
-  connect(imRelay.y, imGain.u) annotation (Line(points={{51.5,-30},{51.5,-30},{
-          58.8,-30}}, color={0,0,127}));
+  connect(imRelay.y, imGain.u) annotation (Line(points={{51,-30},{51,-30},{58.8,-30}},
+                      color={0,0,127}));
   connect(shunt.Q, imGain.y)
     annotation (Line(points={{79,-30},{79,-30},{72.6,-30}}, color={0,0,127}));
-  connect(imLimitedSimpleLag.y, imRelay.u2) annotation (Line(points={{82.8,8},{
-          86,8},{86,-16},{20,-16},{20,-22.5},{28,-22.5}}, color={0,0,127}));
+  connect(imLimitedSimpleLag.y, imRelay.u2) annotation (Line(points={{82.8,8},{86,8},{86,-16},{20,-16},{20,-28},{28,-28}},
+                                                          color={0,0,127}));
   connect(imLimited.y, imLimitedSimpleLag.u)
     annotation (Line(points={{58.8,8},{60,8},{64.4,8}}, color={0,0,127}));
   connect(imLeadLag1.y, imLimited.u)
     annotation (Line(points={{34.8,8},{34.8,8},{40.4,8}}, color={0,0,127}));
   connect(imLeadLag.y, imLeadLag1.u)
     annotation (Line(points={{10.8,8},{16.4,8}}, color={0,0,127}));
-  connect(Q_Reactors.y, imRelay.u4) annotation (Line(points={{-9.5,-33},{28,-33},
-          {28,-32.5}}, color={0,0,127}));
-  connect(Q_capacitors.y, imRelay.u3) annotation (Line(points={{-9.5,-15},{0,-15},
-          {0,-27.5},{28,-27.5}}, color={0,0,127}));
+  connect(Q_Reactors.y, imRelay.u4) annotation (Line(points={{-9.5,-33},{28,-33},{28,-38}},
+                       color={0,0,127}));
+  connect(Q_capacitors.y, imRelay.u3) annotation (Line(points={{-9.5,-15},{0,-15},{0,-33},{28,-33}},
+                                 color={0,0,127}));
   connect(add.u2, absoluteVoltage.v) annotation (Line(points={{-59.2,2.4},{-62,
           2.4},{-62,-4.8},{-65.2,-4.8}}, color={0,0,127}));
   connect(imSetPoint.y, add.u1) annotation (Line(points={{-63.4,26},{-59.2,26},
@@ -102,8 +102,8 @@ equation
           {-34,12.8},{-25.2,12.8}}, color={0,0,127}));
   connect(add.y, add3_1.u2)
     annotation (Line(points={{-45.4,6},{-25.2,6},{-25.2,8}}, color={0,0,127}));
-  connect(imRelay.u1, add3_1.u2) annotation (Line(points={{28,-37.5},{0,-37.5},
-          {0,-46},{-36,-46},{-36,8},{-25.2,8}}, color={0,0,127}));
+  connect(imRelay.u1, add3_1.u2) annotation (Line(points={{28,-22},{0,-22},{0,-46},{-36,-46},{-36,8},{-25.2,8}},
+                                                color={0,0,127}));
   annotation (
     Diagram(graphics={Text(
           extent={{-44,16},{-34,12}},

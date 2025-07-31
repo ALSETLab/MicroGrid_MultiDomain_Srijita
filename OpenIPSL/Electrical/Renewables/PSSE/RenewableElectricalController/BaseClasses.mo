@@ -388,6 +388,166 @@ package BaseClasses "Base classes for renewable energy electrica control models 
 
   end BaseREECC;
 
+  partial model BaseREECD "Base renewable energy electrical controller model A"
+
+    parameter Boolean pfflag=true "Constant output value" annotation (Dialog(tab="Control"));
+    parameter Boolean vflag=true "Constant output value" annotation (Dialog(tab="Control"));
+    parameter Boolean qflag=true "Constant output value" annotation (Dialog(tab="Control"));
+    parameter Boolean pqflag=true "Constant output value" annotation (Dialog(tab="Control"));
+    parameter Boolean pflag=false "Constant output value" annotation (Dialog(tab="Control"));
+    parameter Boolean vcmpflag=false "Constant output value" annotation (Dialog(tab="Control"));
+
+    Modelica.Blocks.Interfaces.RealInput Vt
+      annotation (Placement(transformation(extent={{-480,278},{-440,318}}),
+          iconTransformation(extent={{-480,284},{-440,324}})));
+    Modelica.Blocks.Interfaces.RealInput Pe
+      annotation (Placement(transformation(extent={{-480,122},{-440,162}}),
+          iconTransformation(extent={{-480,122},{-440,162}})));
+    Modelica.Blocks.Interfaces.RealInput Qext
+      "Connector of second Real input signal"
+      annotation (Placement(transformation(extent={{-480,-22},{-440,18}}),
+          iconTransformation(extent={{-480,-42},{-440,-2}})));
+    Modelica.Blocks.Interfaces.RealInput Qgen "Connector of Real input signal 2"
+      annotation (Placement(transformation(extent={{-480,48},{-440,88}}),
+          iconTransformation(extent={{-480,38},{-440,78}})));
+    Modelica.Blocks.Interfaces.RealInput Pref annotation (Placement(
+          transformation(extent={{-480,-98},{-440,-58}}),
+          iconTransformation(extent={{-480,-120},{-440,-80}})));
+    Modelica.Blocks.Interfaces.RealInput ip0 annotation (Placement(transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={120,-320}),  iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={120,-320})));
+    Modelica.Blocks.Interfaces.RealInput iq0 annotation (Placement(transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={230,-320}),  iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={230,-320})));
+    Modelica.Blocks.Interfaces.RealOutput Iqcmd
+      annotation (Placement(transformation(extent={{300,140},{320,160}}),
+          iconTransformation(extent={{300,140},{320,160}})));
+    Modelica.Blocks.Interfaces.RealOutput Ipcmd
+      annotation (Placement(transformation(extent={{300,-160},{320,-140}}),
+          iconTransformation(extent={{300,-162},{320,-142}})));
+    Modelica.Blocks.Interfaces.RealInput Wg annotation (Placement(
+          transformation(extent={{-480,-176},{-440,-136}}), iconTransformation(
+            extent={{-480,-196},{-440,-156}})));
+
+    Modelica.Blocks.Interfaces.RealInput v0 annotation (Placement(transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={-40,-320}),
+                            iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={0,-320})));
+    Modelica.Blocks.Interfaces.RealInput p0 annotation (Placement(transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={-332,-320}),iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={-230,-320})));
+    Modelica.Blocks.Interfaces.RealInput q0 annotation (Placement(transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={-180,-320}),iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={-120,-320})));
+    Modelica.Blocks.Interfaces.RealInput It annotation (Placement(transformation(extent={{-480,198},{-440,238}}), iconTransformation(extent={{-480,206},{-440,246}})));
+    Modelica.Blocks.Interfaces.RealInput Paux annotation (Placement(transformation(extent={{-480,-258},{-440,-218}}), iconTransformation(extent={{-480,-266},{-440,-226}})));
+
+    Modelica.Blocks.Interfaces.RealInput i0 annotation (Placement(transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={42,-320}),iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={60,-318})));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-440,-300},{300,340}}),
+                           graphics={Rectangle(extent={{-440,340},{300,-300}},
+              lineColor={0,0,255}),
+          Text(
+            extent={{-422,322},{-362,282}},
+            textColor={0,0,255},
+            textString="VT"),
+          Text(
+            extent={{-424,158},{-312,118}},
+            textColor={0,0,255},
+            textString="PGEN"),
+          Text(
+            extent={{-426,76},{-314,36}},
+            textColor={0,0,255},
+            textString="QGEN"),
+          Text(
+            extent={{-430,-2},{-318,-42}},
+            textColor={0,0,255},
+            textString="QEXT"),
+          Text(
+            extent={{-428,-82},{-316,-122}},
+            textColor={0,0,255},
+            textString="PREF"),
+          Text(
+            extent={{-412,-154},{-352,-194}},
+            textColor={0,0,255},
+            textString="WG"),
+          Text(
+            extent={{-260,-254},{-200,-294}},
+            textColor={0,0,255},
+            textString="P0"),
+          Text(
+            extent={{-150,-254},{-90,-294}},
+            textColor={0,0,255},
+            textString="Q0"),
+          Text(
+            extent={{-30,-254},{30,-294}},
+            textColor={0,0,255},
+            textString="V0"),
+          Text(
+            extent={{90,-254},{150,-294}},
+            textColor={0,0,255},
+            textString="IP0"),
+          Text(
+            extent={{204,-254},{264,-294}},
+            textColor={0,0,255},
+            textString="IQ0"),
+          Text(
+            extent={{-262,112},{150,-84}},
+            textColor={0,0,255},
+            textString="REECDU1"),
+          Text(
+            extent={{178,168},{290,128}},
+            textColor={0,0,255},
+            textString="IQCMD"),
+          Text(
+            extent={{178,-132},{290,-172}},
+            textColor={0,0,255},
+            textString="IPCMD"),
+          Text(
+            extent={{-342,-268},{-422,-220}},
+            textColor={0,0,255},
+            textString="Paux"),
+          Text(
+            extent={{-422,242},{-362,202}},
+            textColor={0,0,255},
+            textString="IT"),
+          Text(
+            extent={{162,18},{274,-22}},
+            textColor={0,0,255},
+            textString="Pord"),
+          Text(
+            extent={{36,-252},{96,-292}},
+            textColor={0,0,255},
+            textString="I0")}),          Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-440,-300},{300,340}})));
+
+  end BaseREECD;
+
   model CLL_REECB "Current Limit Logic for REECB"
 
     parameter OpenIPSL.Types.PerUnit start_ii;
@@ -784,6 +944,179 @@ package BaseClasses "Base classes for renewable energy electrica control models 
             textString="IQMAX")}));
   end CCL_REECC;
 
+  model CLL_REECD "Current limit logic for REECD"
+
+    parameter OpenIPSL.Types.PerUnit start_ii;
+    parameter OpenIPSL.Types.PerUnit start_ir;
+    parameter Real Imax=1.4;
+    parameter Real Ke=0.5;
+   // parameter OpenIPSL.Types.PerUnit Vblkl "Voltage below which the converter is blocked";
+   // parameter OpenIPSL.Types.PerUnit Vblkh "Voltage above which the converter is blocked";
+   // parameter OpenIPSL.Types.Time Tblk_delay "Time delay after the blocking of the converter (0.04-0.1s)";
+    //parameter Real Vt_filt1; // filtered terminal voltage
+
+    //OpenIPSL.Types.PerUnit post_local_I;
+    //OpenIPSL.Types.PerUnit local_I;
+
+    Modelica.Blocks.Interfaces.RealInput VDLq_out annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=0,
+          origin={-120,60}), iconTransformation(extent={{-140,80},{-100,40}})));
+    Modelica.Blocks.Interfaces.BooleanInput pqflag annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=180,
+          origin={120,0}), iconTransformation(
+          extent={{0,0},{40,40}},
+          rotation=180,
+          origin={140,20})));
+    Modelica.Blocks.Interfaces.RealInput VDLp_out annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=0,
+          origin={-120,-60}), iconTransformation(extent={{-140,-40},{-100,-80}})));
+    Modelica.Blocks.Interfaces.RealInput Iqcmd annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=180,
+          origin={120,60}), iconTransformation(
+          extent={{-13.3335,-13.3336},{26.6673,26.6664}},
+          rotation=180,
+          origin={126.667,66.6664})));
+    Modelica.Blocks.Interfaces.RealInput Ipcmd annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=180,
+          origin={120,-60}), iconTransformation(
+          extent={{-3.63659,79.9998},{36.3659,39.9999}},
+          rotation=180,
+          origin={136.363,-0.0002})));
+    Modelica.Blocks.Interfaces.RealOutput Iqmax annotation (Placement(
+          transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={-60,110})));
+    Modelica.Blocks.Interfaces.RealOutput Iqmin annotation (Placement(
+          transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={60,110})));
+    Modelica.Blocks.Interfaces.RealOutput Ipmax annotation (Placement(
+          transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-60,-110})));
+    Modelica.Blocks.Interfaces.RealOutput Ipmin annotation (Placement(
+          transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={60,-110})));
+
+  equation
+
+    Iqmax = if pqflag == false then min(VDLq_out, Imax) else min(VDLq_out, sqrt(Imax^2 - Ipcmd^2));
+    Iqmin = if Iqmax < 0 then Iqmax else -Iqmax;
+    Ipmax = if pqflag == false then min(VDLp_out, sqrt(Imax^2 - Iqcmd^2)) else min(VDLp_out, Imax);
+    Ipmin = -Ke*Ipmax;
+
+    annotation (Icon(graphics={Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={28,108,200},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.None),  Text(
+            extent={{-60,40},{60,-40}},
+            lineColor={28,108,200},
+            lineThickness=0.5,
+            fillColor={28,108,200},
+            fillPattern=FillPattern.Solid,
+            textString="CLL REECA(C)"),     Text(
+            extent={{52,80},{92,40}},
+            lineColor={28,108,200},
+            lineThickness=0.5,
+            fillColor={28,108,200},
+            fillPattern=FillPattern.Solid,
+            textString="IQCMD"),            Text(
+            extent={{52,-40},{92,-80}},
+            lineColor={28,108,200},
+            lineThickness=0.5,
+            fillColor={28,108,200},
+            fillPattern=FillPattern.Solid,
+            textString="IPCMD"),            Text(
+            extent={{-90,80},{-50,40}},
+            lineColor={28,108,200},
+            lineThickness=0.5,
+            fillColor={28,108,200},
+            fillPattern=FillPattern.Solid,
+            textString="VDL1"),             Text(
+            extent={{-90,-40},{-50,-80}},
+            lineColor={28,108,200},
+            lineThickness=0.5,
+            fillColor={28,108,200},
+            fillPattern=FillPattern.Solid,
+            textString="VDL2"),             Text(
+            extent={{-68,98},{-28,58}},
+            lineColor={28,108,200},
+            lineThickness=0.5,
+            fillColor={28,108,200},
+            fillPattern=FillPattern.Solid,
+            textString="IQMIN"),            Text(
+            extent={{52,98},{92,58}},
+            lineColor={28,108,200},
+            lineThickness=0.5,
+            fillColor={28,108,200},
+            fillPattern=FillPattern.Solid,
+            textString="IQMAX")}));
+  end CLL_REECD;
+
+  model CCBlock_REECD
+
+    Modelica.Blocks.Interfaces.RealInput Vt annotation (Placement(transformation(extent={{-140,46},{-100,86}}), iconTransformation(extent={{-140,50},{-100,90}})));
+    Modelica.Blocks.Interfaces.RealInput It annotation (Placement(transformation(extent={{-140,-70},{-100,-30}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
+    Modelica.Blocks.Interfaces.RealOutput y annotation (Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(extent={{100,-10},{120,10}})));
+
+    import Modelica.ComplexMath.real;
+    import Modelica.ComplexMath.imag;
+    import Modelica.ComplexMath.abs;
+    import Modelica.ComplexMath.j;
+
+    parameter Types.PerUnit Rc=0 "Resistance";
+    parameter Types.PerUnit Xc=0 "Reactance";
+    parameter Complex Z(re=Rc, im=Xc);
+    //Complex Vcomplex;
+    //Complex Icomplex;
+    Complex C;
+    //OpenIPSL.Types.Angle angle;
+    //OpenIPSL.Types.PerUnit Vmag "Bus voltage magnitude";
+    //OpenIPSL.Types.PerUnit Imag "Terminal current magnitude";
+    OpenIPSL.Types.PerUnit Vre;
+    OpenIPSL.Types.PerUnit Vim;
+    OpenIPSL.Types.PerUnit Ire;
+    OpenIPSL.Types.PerUnit Iim;
+
+    Modelica.Blocks.Interfaces.RealInput Anglet annotation (Placement(transformation(extent={{-140,-18},{-100,22}}), iconTransformation(extent={{-140,-12},{-100,28}})));
+
+  equation
+   Vmag = Vt;
+   Imag = It;
+
+   // Calculate the real and imaginary parts
+   Vre = Vmag * cos(angle); // Real part of the voltage
+   Vim = Vmag * sin(angle); // Imaginary part of the voltage
+   Ire = Imag * cos(angle); // Real part of the current
+   Iim = Imag * sin(angle); // Imaginary part of the current
+   Vcomplex = Vre + j*Vim;
+   Icomplex = Ire + j*Iim;
+   C = Vcomplex - (Z*Icomplex);
+   y = abs(C);
+
+    annotation (Icon(graphics={Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,255}), Text(
+            extent={{-84,-44},{88,48}},
+            textColor={28,108,200},
+            textStyle={TextStyle.Bold},
+            textString="CCBlock")}));
+  end CCBlock_REECD;
+
   model PI_WECC_VariableLimiter
     import Modelica.Units.SI;
     parameter SI.PerUnit K_P "Voltage regulator proportional gain (pu)";
@@ -943,4 +1276,5 @@ package BaseClasses "Base classes for renewable energy electrica control models 
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}})));
   end PI_WECC_NoVariableLimiter;
+
 end BaseClasses;

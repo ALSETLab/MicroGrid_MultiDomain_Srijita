@@ -7,9 +7,9 @@ model Wind_plant
     Q_0=-5665800,
     v_0=1,
     angle_0=0.02574992,
-    QFunctionality=4,
+    QFunctionality=0,
     PFunctionality=0,
-    TOscillation=0,
+    TOscillation=1,
     redeclare
       OpenIPSL.Electrical.Renewables.PSSE.RenewableGeneratorConverter.REGC_A
       RenewableGenerator(

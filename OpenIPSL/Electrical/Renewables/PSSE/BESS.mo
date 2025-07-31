@@ -107,8 +107,7 @@ equation
   connect(RenewableController.Iqcmd, RenewableGenerator.Iqcmd)
     annotation (Line(points={{20.6667,10},{27.1429,10}}, color={0,0,127}));
   connect(RenewableGenerator.IQ0, RenewableController.iq0) annotation (Line(
-        points={{32.8571,-21.4286},{32.8571,-28},{15.3333,-28},{15.3333,
-          -21.3333}},
+        points={{32.8571,-21.4286},{32.8571,-28},{15.3333,-28},{15.3333,-21.3333}},
         color={0,0,127}));
   connect(RenewableGenerator.IP0, RenewableController.ip0) annotation (Line(
         points={{41.4286,-21.4286},{41.4286,-32},{8,-32},{8,-21.3333}},   color=
@@ -120,56 +119,52 @@ equation
                                                                         color={0,
           0,127}));
   connect(RenewableGenerator.p_0, RenewableController.p0) annotation (Line(
-        points={{67.1429,-21.4286},{67.1429,-44},{-15.3333,-44},{-15.3333,
-          -21.3333}},
+        points={{67.1429,-21.4286},{67.1429,-44},{-15.3333,-44},{-15.3333,-21.3333}},
         color={0,0,127}));
   connect(RenewableGenerator.V_t, RenewableController.Vt) annotation (Line(
-        points={{37.1429,21.4286},{37.1429,26},{-26,26},{-26,16},{-21.3333,16}},
+        points={{33.7143,21.4286},{33.7143,26},{-26,26},{-26,16},{-21.3333,16}},
                      color={0,0,127}));
   connect(RenewableGenerator.Pgen, RenewableController.Pe) annotation (Line(
         points={{50,21.4286},{50,30},{-28,30},{-28,10.6667},{-21.3333,10.6667}},
         color={0,0,127}));
   connect(RenewableGenerator.Qgen, RenewableController.Qgen) annotation (Line(
-        points={{62.8571,21.4286},{62.8571,34},{-30,34},{-30,5.33333},{-21.3333,
-          5.33333}},
+        points={{62.8571,21.4286},{62.8571,34},{-30,34},{-30,5.33333},{-21.3333,5.33333}},
         color={0,0,127}));
   connect(PlantController.Qext, RenewableController.Qext) annotation (Line(
         points={{-37,10},{-32,10},{-32,0},{-21.3333,0}},               color={0,
           0,127}));
   connect(PlantController.Pref, RenewableController.Pref) annotation (Line(
-        points={{-37,-10},{-34,-10},{-34,-6},{-24,-6},{-24,-5.33333},{-21.3333,
-          -5.33333}},                                                    color={
+        points={{-37,-10},{-34,-10},{-34,-6},{-24,-6},{-24,-5.33333},{-21.3333,-5.33333}},
+                                                                         color={
           0,0,127}));
-  connect(PlantController.p0, RenewableController.p0) annotation (Line(points={{-70,-22},
-          {-70,-44},{-15.3333,-44},{-15.3333,-21.3333}},          color={0,0,127}));
-  connect(PlantController.v0, RenewableController.v0) annotation (Line(points={{-58,-22},
-          {-58,-36},{0,-36},{0,-21.3333}},          color={0,0,127}));
-  connect(PlantController.q0, RenewableController.q0) annotation (Line(points={{-46,-22},
-          {-46,-40},{-8,-40},{-8,-21.3333}},          color={0,0,127}));
-  connect(gain.u, RenewableGenerator.p_0) annotation (Line(points={{1.2,-60},{
-          67.1429,-60},{67.1429,-21.4286}},
+  connect(PlantController.p0, RenewableController.p0) annotation (Line(points={{-70,-22},{-70,-44},{-15.3333,-44},{-15.3333,-21.3333}},
+                                                                  color={0,0,127}));
+  connect(PlantController.v0, RenewableController.v0) annotation (Line(points={{-58,-22},{-58,-36},{0,-36},{0,-21.3333}},
+                                                    color={0,0,127}));
+  connect(PlantController.q0, RenewableController.q0) annotation (Line(points={{-46,-22},{-46,-40},{-8,-40},{-8,-21.3333}},
+                                                      color={0,0,127}));
+  connect(gain.u, RenewableGenerator.p_0) annotation (Line(points={{1.2,-60},{67.1429,-60},{67.1429,-21.4286}},
                                     color={0,0,127}));
-  connect(gain1.y, RenewableController.Qext) annotation (Line(points={{-12.6,
-          -80},{-32,-80},{-32,0},{-21.3333,0}},          color={0,0,127}));
-  connect(gain.y, RenewableController.Pref) annotation (Line(points={{-12.6,-60},
-          {-30,-60},{-30,-5.33333},{-21.3333,-5.33333}}, color={0,0,127}));
-  connect(gain1.u, RenewableGenerator.q_0) annotation (Line(points={{1.2,-80},{
-          58.5714,-80},{58.5714,-21.4286}},
+  connect(gain1.y, RenewableController.Qext) annotation (Line(points={{-12.6,-80},{-32,-80},{-32,0},{-21.3333,0}},
+                                                         color={0,0,127}));
+  connect(gain.y, RenewableController.Pref) annotation (Line(points={{-12.6,-60},{-30,-60},{-30,-5.33333},{-21.3333,-5.33333}},
+                                                         color={0,0,127}));
+  connect(gain1.u, RenewableGenerator.q_0) annotation (Line(points={{1.2,-80},{58.5714,-80},{58.5714,-21.4286}},
                                     color={0,0,127}));
   connect(freq_ref.y, PlantController.Freq_ref) annotation (Line(points={{-80.5,
           -55},{-88,-55},{-88,-11},{-80,-11}}, color={0,0,127}));
   connect(PlantController.Plant_pref, RenewableGenerator.p_0) annotation (Line(
         points={{-80,4},{-96,4},{-96,-92},{67.1429,-92},{67.1429,-21.4286}},
         color={0,0,127}));
-  connect(PlantController.Qref, RenewableGenerator.q_0) annotation (Line(points={{-80,11},
-          {-98,11},{-98,-98},{58.5714,-98},{58.5714,-21.4286}},          color={
+  connect(PlantController.Qref, RenewableGenerator.q_0) annotation (Line(points={{-80,11},{-98,11},{-98,-98},{58.5714,-98},{58.5714,-21.4286}},
+                                                                         color={
           0,0,127}));
   connect(RenewableGenerator.p, pwPin)
     annotation (Line(points={{70,0},{100,0}}, color={0,0,255}));
   connect(PlantController.Freq, FREQ) annotation (Line(points={{-80,-4},{-92,-4},
           {-92,0},{-106,0}}, color={0,0,127}));
-  connect(PAUX.y, RenewableController.Paux) annotation (Line(points={{-69.5,-75},
-          {-26,-75},{-26,-10.6667},{-21.3333,-10.6667}}, color={0,0,127}));
+  connect(PAUX.y, RenewableController.Paux) annotation (Line(points={{-69.5,-75},{-26,-75},{-26,-10.6667},{-21.3333,-10.6667}},
+                                                         color={0,0,127}));
   connect(PlantController.branch_ii, branch_ii) annotation (Line(points={{-62,
           22},{-62,58},{-30,58},{-30,80}}, color={0,0,127}));
   connect(PlantController.branch_ir, branch_ir) annotation (Line(points={{-72,

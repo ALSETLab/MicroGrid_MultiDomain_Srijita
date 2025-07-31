@@ -1,14 +1,14 @@
 within OpenIPSL.Tests.Renewable.PSSE.BESS;
 model BESS_plant
   "BESS source in a SMIB system to test functionality of REPCA plant controller model"
-  extends BaseClasses.SMIBRenewable;
+  extends BaseClasses.SMIBRenewable(pwFault(t2=2.15));
   Electrical.Renewables.PSSE.BESS bESS(
     fn=SysData.fn,
     P_0=1500000,
     Q_0=-5665800,
     v_0=1,
     angle_0=0.02574992,
-    QFunctionality=4,
+    QFunctionality=0,
     redeclare
       OpenIPSL.Electrical.Renewables.PSSE.RenewableGeneratorConverter.REGC_A
       RenewableGenerator(

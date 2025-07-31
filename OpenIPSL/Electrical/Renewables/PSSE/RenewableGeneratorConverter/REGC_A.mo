@@ -74,11 +74,13 @@ public
 equation
   [IP.y;  IOLIM.y] = -[cos(delta), sin(delta); -sin(delta), cos(delta)]*[p.ir/CoB; p.ii/CoB];
   V_t = VT;
+  I_t = IT;
   Pgen = -(1/CoB)*(p.vr*p.ir + p.vi*p.ii);
   Qgen = -(1/CoB)*(p.vi*p.ir - p.vr*p.ii);
   IQ0 = Iq0;
   IP0 = Ip0;
   V_0 = v_0;
+  I_0 = sqrt(ir0^2 + ii0^2);
   p_0 = p0;
   q_0 = q0;
 
